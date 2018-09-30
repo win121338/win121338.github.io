@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="技术," />
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="懒加载定义当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为11px图片的路径（这样就只需请求一次），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。 使用(JS实现图片懒加载插件)   1、在Html head头上引用 js &amp;lt;script src=&amp;quot;js/lazyload.js&amp;quot;&amp;gt;&amp;lt;">
+<meta name="keywords" content="技术">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/09/15/hello-world/index.html">
+<meta property="og:title" content="关于懒加载的实现与使用">
+<meta property="og:url" content="http://yoursite.com/2018/09/30/关于懒加载的实现与使用/index.html">
 <meta property="og:site_name" content="一身正气">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="懒加载定义当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为11px图片的路径（这样就只需请求一次），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。 使用(JS实现图片懒加载插件)   1、在Html head头上引用 js &amp;lt;script src=&amp;quot;js/lazyload.js&amp;quot;&amp;gt;&amp;lt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-15T02:10:16.703Z">
+<meta property="og:updated_time" content="2018-09-30T08:15:25.632Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="关于懒加载的实现与使用">
+<meta name="twitter:description" content="懒加载定义当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为11px图片的路径（这样就只需请求一次），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。 使用(JS实现图片懒加载插件)   1、在Html head头上引用 js &amp;lt;script src=&amp;quot;js/lazyload.js&amp;quot;&amp;gt;&amp;lt;">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/15/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/30/关于懒加载的实现与使用/"/>
 
 
 
 
 
-  <title>Hello World | 一身正气</title>
+  <title>关于懒加载的实现与使用 | 一身正气</title>
   
 
 
@@ -262,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/15/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/30/关于懒加载的实现与使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="余生">
@@ -279,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">关于懒加载的实现与使用</h1>
         
 
         <div class="post-meta">
@@ -291,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T10:10:16+08:00">
-                2018-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-30T14:39:57+08:00">
+                2018-09-30
               </time>
             
 
@@ -329,15 +330,69 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h3 id="懒加载定义"><a href="#懒加载定义" class="headerlink" title="懒加载定义"></a>懒加载定义</h3><p>当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为11px图片的路径（这样就只需请求一次），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。</p>
+<h3 id="使用-JS实现图片懒加载插件"><a href="#使用-JS实现图片懒加载插件" class="headerlink" title="使用(JS实现图片懒加载插件)"></a>使用(JS实现图片懒加载插件)</h3><p>   <strong>1、在Html head头上引用 js <code>&lt;script src=&quot;js/lazyload.js&quot;&gt;&lt;/script&gt;</code></strong><br>   <strong>2、对于要懒加载的图片进行如下属性设置。<code>&lt;img class=&quot;m-lazyload&quot; src=&quot;images/load.jpg&quot; data-src=&quot;images/Home3.jpg&quot; width=&quot;100%&quot; height=&quot;100%&quot;/&gt;</code></strong><br>      <em>其中src是未加载时的图片，可以放一个大小为2kb的白色背景图片，data-src为实际要加载的图片。要注意设置class为m-lazyload，不然会显示出错。</em><br>   <del>注意lazyload.init()的执行时机，如果在dom ready阶段执行，会下载所有图片，不能实现懒加载。要在winow.onload完成这个阶段去执行。</del><br>   完成以上两步即可实现网页懒加载。</p>
+<h4 id="此处供上lazyload-js"><a href="#此处供上lazyload-js" class="headerlink" title="此处供上lazyload.js"></a>此处供上lazyload.js</h4><pre><code>(function () {
+var imgList = [],  // 页面所有img元素集合
+        delay,   // setTimeout 对象
+        offset,  //偏移量，用于指定图片距离可视区域多少距离，进行加载
+        time,  // 延迟载入时间
+        _selector; // 选择器 默认为 .m-lazyload
+
+function _isShow(el) {
+    var coords = el.getBoundingClientRect();
+    return ( (coords.top &gt;= 0 &amp;&amp; coords.left &gt;= 0 &amp;&amp; coords.top) &lt;= (window.innerHeight || document.documentElement.clientHeight) + parseInt(offset) );
+}
+
+function _loadImage() {
+    for (var i = imgList.length; i--;) {
+        var el = imgList[i];
+        if (_isShow(el)) {
+            el.src = el.getAttribute(&apos;data-src&apos;);
+            el.className = el.className.replace(new RegExp(&quot;(\\s|^)&quot; + _selector.substring(1, _selector.length) + &quot;(\\s|$)&quot;), &quot; &quot;);
+            imgList.splice(i, 1);
+        }
+    }
+}
+
+function _delay() {
+    clearTimeout(delay);
+    delay = setTimeout(function () {
+        _loadImage();
+    }, time);
+}
+
+var ImageLazyload = function (selector, options) {
+    var defaults = options || {};
+    offset = defaults.offset || 0;
+    time = defaults.time || 250;
+    _selector = selector || &apos;.m-lazyload&apos;;
+    this.getNode();
+    _delay();//避免首次加载未触发touch事件,主动触发一次加载函数
+    if (defaults.iScroll) {
+        defaults.iScroll.on(&apos;scroll&apos;, _delay);
+        defaults.iScroll.on(&apos;scrollEnd&apos;, _delay);
+    } else {
+        window.addEventListener(&apos;scroll&apos;, _delay, false);
+    }
+};
+
+ImageLazyload.prototype.getNode = function () {
+    imgList = [];
+    var nodes = document.querySelectorAll(_selector);
+    for (var i = 0, l = nodes.length; i &lt; l; i++) {
+        imgList.push(nodes[i]);
+    }
+};
+window[&apos;ImageLazyload&apos;] = ImageLazyload;
+})();
+
+window.onload = function () {
+var _ImageLazyload = new ImageLazyload();
+}
+</code></pre><h3 id="参考文章："><a href="#参考文章：" class="headerlink" title="参考文章："></a>参考文章：</h3><p>1、<a href="https://www.cnblogs.com/flyromance/p/5042187.html" target="_blank" rel="noopener">滚动加载图片（懒加载）实现原理</a><br>2、<a href="http://www.cnblogs.com/cloudgamer/archive/2010/02/01/LazyLoad.html" target="_blank" rel="noopener">Lazyload 延迟加载效果</a><br>3、<a href="https://www.cnblogs.com/myclovers/p/6365101.html" target="_blank" rel="noopener">实现一个图片懒加载插件</a></p>
+<h2 id="jQuery-懒加载插件-gt-gt"><a href="#jQuery-懒加载插件-gt-gt" class="headerlink" title="jQuery 懒加载插件&gt;&gt;"></a>jQuery 懒加载插件&gt;&gt;</h2><p>   <em>jQuery的懒加载应用也比较广泛，不过依赖于jQuery。</em><br>   <em>具体的可以参考该文章<a href="https://blog.csdn.net/xiao714041/article/details/52711628?foxhandler=RssReadRenderProcessHandler" target="_blank" rel="noopener">jQuery延迟加载（懒加载）</a>。</em><br>   <strong>附官方github参考地址：<a href="https://github.com/tuupola/jquery_lazyload" target="_blank" rel="noopener">https://github.com/tuupola/jquery_lazyload</a></strong></p>
+<h2 id="Vue-懒加载插件-gt-gt"><a href="#Vue-懒加载插件-gt-gt" class="headerlink" title="Vue 懒加载插件&gt;&gt;"></a>Vue 懒加载插件&gt;&gt;</h2><p>   <em>Vue.js也是目前的主流，所以vue lazyload懒加载也很广泛。</em><br>   <strong>参考文章</strong><br>   <em><a href="https://blog.csdn.net/qq_36947128/article/details/79397581" target="_blank" rel="noopener">Vue lazyload懒加载使用</a>,</em><br>   <em><a href="https://www.cnblogs.com/lijuntao/p/7777581.html" target="_blank" rel="noopener">vue-router路由懒加载（解决vue项目首次加载慢）</a></em><br>   <em><a href="https://www.cnblogs.com/zhanyishu/p/6587571.html" target="_blank" rel="noopener">VUE2组件懒加载浅析</a></em><br>   <strong>附github参考地址：<a href="https://github.com/shuizhubocai/vue-viewload" target="_blank" rel="noopener">https://github.com/shuizhubocai/vue-viewload</a></strong></p>
 
       
     </div>
@@ -353,6 +408,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/技术/" rel="tag"># 技术</a>
+          
+        </div>
+      
 
       
       
@@ -362,15 +423,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/09/20/几种布局类型概念与区别/" rel="next" title="几种布局类型概念与区别">
+                <i class="fa fa-chevron-left"></i> 几种布局类型概念与区别
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/15/First-Log/" rel="prev" title="First Log">
-                First Log <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -543,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#懒加载定义"><span class="nav-number">1.</span> <span class="nav-text">懒加载定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用-JS实现图片懒加载插件"><span class="nav-number">2.</span> <span class="nav-text">使用(JS实现图片懒加载插件)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#此处供上lazyload-js"><span class="nav-number">2.1.</span> <span class="nav-text">此处供上lazyload.js</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章："><span class="nav-number">3.</span> <span class="nav-text">参考文章：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jQuery-懒加载插件-gt-gt"><span class="nav-number"></span> <span class="nav-text">jQuery 懒加载插件&gt;&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-懒加载插件-gt-gt"><span class="nav-number"></span> <span class="nav-text">Vue 懒加载插件&gt;&gt;</span></a></div>
             
 
           </div>
