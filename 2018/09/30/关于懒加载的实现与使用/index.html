@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="一身正气">
 <meta property="og:description" content="懒加载定义当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为11px图片的路径（这样就只需请求一次），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。 使用(JS实现图片懒加载插件)   1、在Html head头上引用 js &amp;lt;script src=&amp;quot;js/lazyload.js&amp;quot;&amp;gt;&amp;lt;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-30T08:15:25.632Z">
+<meta property="og:updated_time" content="2018-09-30T08:22:51.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于懒加载的实现与使用">
 <meta name="twitter:description" content="懒加载定义当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为11px图片的路径（这样就只需请求一次），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。 使用(JS实现图片懒加载插件)   1、在Html head头上引用 js &amp;lt;script src=&amp;quot;js/lazyload.js&amp;quot;&amp;gt;&amp;lt;">
@@ -332,6 +332,7 @@
       
         <h3 id="懒加载定义"><a href="#懒加载定义" class="headerlink" title="懒加载定义"></a>懒加载定义</h3><p>当访问一个页面的时候，先把img元素或是其他元素的背景图片路径替换成一张大小为11px图片的路径（这样就只需请求一次），只有当图片出现在浏览器的可视区域内时，才设置图片正真的路径，让图片显示出来。这就是图片懒加载。</p>
 <h3 id="使用-JS实现图片懒加载插件"><a href="#使用-JS实现图片懒加载插件" class="headerlink" title="使用(JS实现图片懒加载插件)"></a>使用(JS实现图片懒加载插件)</h3><p>   <strong>1、在Html head头上引用 js <code>&lt;script src=&quot;js/lazyload.js&quot;&gt;&lt;/script&gt;</code></strong><br>   <strong>2、对于要懒加载的图片进行如下属性设置。<code>&lt;img class=&quot;m-lazyload&quot; src=&quot;images/load.jpg&quot; data-src=&quot;images/Home3.jpg&quot; width=&quot;100%&quot; height=&quot;100%&quot;/&gt;</code></strong><br>      <em>其中src是未加载时的图片，可以放一个大小为2kb的白色背景图片，data-src为实际要加载的图片。要注意设置class为m-lazyload，不然会显示出错。</em><br>   <del>注意lazyload.init()的执行时机，如果在dom ready阶段执行，会下载所有图片，不能实现懒加载。要在winow.onload完成这个阶段去执行。</del><br>   完成以上两步即可实现网页懒加载。</p>
+   <a id="more"></a>
 <h4 id="此处供上lazyload-js"><a href="#此处供上lazyload-js" class="headerlink" title="此处供上lazyload.js"></a>此处供上lazyload.js</h4><pre><code>(function () {
 var imgList = [],  // 页面所有img元素集合
         delay,   // setTimeout 对象
