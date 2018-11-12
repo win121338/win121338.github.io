@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="前端技术," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="写在前面的话   最近用phpcms V9管理系统写了官网，发现phpcms v9确实提供了不少便利。phpcms主要的一些标签现在次做一下总结，方便今后的使用和查阅。 头部123&amp;lt;title&amp;gt;&amp;#123;if isset($SEO[&amp;apos;title&amp;apos;]) &amp;amp;&amp;amp; !empty($SEO[&amp;apos;title&amp;apos;])&amp;#125;&amp;#123;$SE">
+<meta name="keywords" content="前端技术">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Phpcms v9 二次开发常用标签">
+<meta property="og:url" content="http://yoursite.com/2018/11/12/总结phpcms常用标签/index.html">
+<meta property="og:site_name" content="一身正气">
+<meta property="og:description" content="写在前面的话   最近用phpcms V9管理系统写了官网，发现phpcms v9确实提供了不少便利。phpcms主要的一些标签现在次做一下总结，方便今后的使用和查阅。 头部123&amp;lt;title&amp;gt;&amp;#123;if isset($SEO[&amp;apos;title&amp;apos;]) &amp;amp;&amp;amp; !empty($SEO[&amp;apos;title&amp;apos;])&amp;#125;&amp;#123;$SE">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-12T09:19:07.317Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Phpcms v9 二次开发常用标签">
+<meta name="twitter:description" content="写在前面的话   最近用phpcms V9管理系统写了官网，发现phpcms v9确实提供了不少便利。phpcms主要的一些标签现在次做一下总结，方便今后的使用和查阅。 头部123&amp;lt;title&amp;gt;&amp;#123;if isset($SEO[&amp;apos;title&amp;apos;]) &amp;amp;&amp;amp; !empty($SEO[&amp;apos;title&amp;apos;])&amp;#125;&amp;#123;$SE">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/12/总结phpcms常用标签/"/>
+
+
+
+
+
+  <title>Phpcms v9 二次开发常用标签 | 一身正气</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一身正气</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我不想谋生，我想生活...</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/12/总结phpcms常用标签/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余生">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://images.liqucn.com/img/h1/h965/img201709161120060_info300X300.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一身正气">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Phpcms v9 二次开发常用标签</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-12T16:43:29+08:00">
+                2018-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WEB/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="写在前面的话"><a href="#写在前面的话" class="headerlink" title="写在前面的话"></a>写在前面的话</h2><p>   最近用phpcms V9管理系统写了官网，发现phpcms v9确实提供了不少便利。phpcms主要的一些标签现在次做一下总结，方便今后的使用和查阅。</p>
+<h4 id="头部"><a href="#头部" class="headerlink" title="头部"></a>头部</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;title&gt;&#123;if isset($SEO[&apos;title&apos;]) &amp;&amp; !empty($SEO[&apos;title&apos;])&#125;&#123;$SEO[&apos;title&apos;]&#125;&#123;/if&#125;&#123;$SEO[&apos;site_title&apos;]&#125;&lt;/title&gt;</span><br><span class="line">&lt;meta name=&quot;Keywords&quot; content=&quot;&#123;$SEO[&apos;keyword&apos;]&#125;&quot; &gt;</span><br><span class="line">&lt;meta name=&quot;Description&quot; content=&quot;&#123;$SEO[&apos;description&apos;]&#125;&quot; &gt;</span><br></pre></td></tr></table></figure>
+<h4 id="栏目名称"><a href="#栏目名称" class="headerlink" title="栏目名称"></a>栏目名称</h4><pre><code>获取当前栏目名称：{$CATEGORYS[$catid][catname]}
+把栏目的描述调用出来：{$CATEGORYS[$catid][description]}
+显示文章位置导航：{catpos($catid)} 
+显示当前栏目链接：{$CATEGORYS[$catid][url]} 
+</code></pre><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">注意：moreinfo=&quot;1&quot;表示需要调用自己新建表的标签</span><br><span class="line">&#123;pc:content action=&quot;lists&quot; catid=&quot;$catid&quot; num=&quot;3&quot; order=&quot;id DESC&quot; page=&quot;$page&quot; moreinfo=&quot;1&quot;&#125;</span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="模板包含"><a href="#模板包含" class="headerlink" title="模板包含"></a>模板包含</h4><p>头部模板：{template “content”,”header”} </p>
+<p>侧边模板：{template “content”,”sidebar”} </p>
+<p>底部模板：{template “content”,”footer”}</p>
+<h4 id="常用调用数据"><a href="#常用调用数据" class="headerlink" title="常用调用数据"></a>常用调用数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content action=&quot;lists&quot; catid=&quot;6&quot; num=&quot;8&quot; order=&quot;inputtime DESC&quot; &#125;</span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">&lt;li&gt;&lt;span class=&quot;date&quot;&gt;(&#123;date(&apos;Y/m/d H:m:s&apos;,$r[inputtime])&#125;)&lt;/span&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot; target=&quot;_blank&quot; title=&quot;&#123;$r[title]&#125;&quot;&gt;&#123;str_cut($r[title],&apos;28&apos;)&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="常用标签：-str-cut-strip-tags-r-description-165"><a href="#常用标签：-str-cut-strip-tags-r-description-165" class="headerlink" title="常用标签：{str_cut(strip_tags($r[description]), 165)}"></a>常用标签：{str_cut(strip_tags($r[description]), 165)}</h4><p>{$r[thumb]}</p>
+<h4 id="推荐位调用："><a href="#推荐位调用：" class="headerlink" title="推荐位调用："></a>推荐位调用：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content action=&quot;position&quot; posid=&quot;1&quot; order=&quot;listorder DESC&quot; num=&quot;5&quot;&#125;  </span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">     &lt;li&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot;  target=&quot;_blank&quot;&gt;&lt;img src=&quot;&#123;$r[thumb]&#125;&quot; text=&quot;&#123;$r[title]&#125;&quot; alt=&quot;&#123;$r[title]&#125;&quot; width=&quot;727&quot; height=&apos;243&apos; /&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="一级栏目调用："><a href="#一级栏目调用：" class="headerlink" title="一级栏目调用："></a>一级栏目调用：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content action=&quot;category&quot; catid=&quot;0&quot; num=&quot;8&quot; siteid=&quot;$siteid&quot; order=&quot;listorder ASC&quot;&#125; </span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">&lt;li&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot; title=&quot;&#123;$r[catname]&#125;&quot;&gt;&#123;$r[catname]&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="当前栏目风格："><a href="#当前栏目风格：" class="headerlink" title="当前栏目风格："></a>当前栏目风格：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;if $catid==$r[catid]&#125; class=&quot;current&quot;&#123;/if&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在文章前显示文章分类名："><a href="#在文章前显示文章分类名：" class="headerlink" title="在文章前显示文章分类名："></a>在文章前显示文章分类名：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content action=&quot;lists&quot; catid=&quot;2&quot; order=&quot;listorder DESC&quot; num=&quot;14&quot; &#125;</span><br><span class="line">&lt;?php $TYPE = getcache(&apos;type_content&apos;,&apos;commons&apos;);?&gt;</span><br><span class="line">&#123;loop $data $n $r&#125;</span><br><span class="line">&lt;li&gt;&#123;if $TYPE[$r[typeid]][name]&#125;&lt;span style=&quot;color:#CC6600&quot;&gt;[ &#123;$TYPE[$r[typeid]][name]&#125;] &lt;/span&gt;&#123;/if&#125;&lt;a href=&quot;&#123;$r[&apos;url&apos;]&#125;&quot; title=&quot;&#123;$r[&apos;title&apos;]&#125;&quot; target=&quot;_blank&quot;&gt;&#123;str_cut($r[title],33,&apos;&apos;)&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="指定变量循环增长"><a href="#指定变量循环增长" class="headerlink" title="指定变量循环增长:"></a>指定变量循环增长:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content...</span><br><span class="line">&#123;php $num = 0&#125;</span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">...</span><br><span class="line">&#123;php $num++&#125;</span><br><span class="line">&#123;/loop&#125; </span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="文章从指定位置调用：num-”3”-start-”5”-可配合pc-get标签使用"><a href="#文章从指定位置调用：num-”3”-start-”5”-可配合pc-get标签使用" class="headerlink" title="文章从指定位置调用：num=”3” start=”5”} (可配合pc:get标签使用)"></a>文章从指定位置调用：num=”3” start=”5”} (可配合pc:get标签使用)</h4><h4 id="文章列表页调用关键字，或者首页调用关键字"><a href="#文章列表页调用关键字，或者首页调用关键字" class="headerlink" title="文章列表页调用关键字，或者首页调用关键字:"></a>文章列表页调用关键字，或者首页调用关键字:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content action=&quot;lists&quot; catid=&quot;$catid&quot; num=&quot;10&quot; order=&quot;id DESC&quot; page=&quot;$page&quot;&#125;</span><br><span class="line">&#123;loop $data $r&#125; </span><br><span class="line">&lt;a href=&quot;&#123;$r[url]&#125;&quot;&gt;&#123;$r[title]&#125;&lt;/a&gt;</span><br><span class="line">php $keywords = explode(&apos;,&apos;,$r[keywords]);&#125;</span><br><span class="line">&lt;b&gt;文章标签:&lt;/b&gt; </span><br><span class="line">&#123;loop $keywords $keyword&#125; </span><br><span class="line"> &lt;a  href=&quot;&#123;APP_PATH&#125;index.php?m=content&amp;c=tag&amp;catid=&#123;$catid&#125;&amp;tag=&#123;urlencode($keyword)&#125;&quot; class=&quot;blue&quot;&gt; &#123;$keyword&#125;&lt;/a&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="当列表几行的时候出现一次某些符号-if-n-2-1-if"><a href="#当列表几行的时候出现一次某些符号-if-n-2-1-if" class="headerlink" title="当列表几行的时候出现一次某些符号:{if $n%2==1}|{/if}"></a>当列表几行的时候出现一次某些符号:{if $n%2==1}|{/if}</h4><h4 id="当前位置显示："><a href="#当前位置显示：" class="headerlink" title="当前位置显示："></a>当前位置显示：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;postion&quot;&gt;当前位置：&lt;a href=&quot;&#123;siteurl($siteid)&#125;&quot;&gt;首页&lt;/a&gt;&lt;span&gt; &gt; &lt;/span&gt;&#123;catpos($catid)&#125; 列表&lt;/div&gt;</span><br><span class="line">当前栏目名称：&#123;$catname&#125;</span><br><span class="line">获取父栏目id/获取父栏目名称:&#123;$CATEGORY[$catid][parentid]&#125; / &#123;$CATEGORYS[$CAT[parentid]][catname]&#125;</span><br><span class="line">指定ID栏目名称：&#123;$CATEGORYS[栏目ID号][&apos;catname&apos;]&#125; /  &#123;$CATEGORYS[$catid][&apos;catname&apos;]&#125;</span><br><span class="line">其他常用调用：&#123;$r[description]&#125;  &#123;$r[image]&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="列表内容显示（带分页）："><a href="#列表内容显示（带分页）：" class="headerlink" title="列表内容显示（带分页）："></a>列表内容显示（带分页）：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;news_list2&quot;&gt;</span><br><span class="line">&lt;ul&gt;</span><br><span class="line">&#123;pc:content action=&quot;lists&quot; catid=&quot;$catid&quot; num=&quot;20&quot; order=&quot;id DESC&quot; page=&quot;$page&quot;&#125;</span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">&lt;li&gt;&lt;span class=&quot;date&quot;&gt;&#123;date(&apos;Y-m-d H:i:s&apos;,$r[inputtime])&#125;&lt;/span&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot; target=&quot;_blank&quot; title=&quot;&#123;$r[title]&#125;&quot;&gt;&#123;$r[title]&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line">&lt;div id=&quot;pages&quot; class=&quot;text-c&quot;&gt;&#123;$pages&#125;&lt;/div&gt;</span><br><span class="line">&#123;/pc&#125;</span><br><span class="line">&lt;/div&gt;&lt;!-- news_list end--&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="显示该栏目下的子栏目："><a href="#显示该栏目下的子栏目：" class="headerlink" title="显示该栏目下的子栏目："></a>显示该栏目下的子栏目：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;if $top_parentid&#125;</span><br><span class="line">&#123;pc:content action=&quot;category&quot; catid=&quot;$top_parentid&quot; num=&quot;15&quot; siteid=&quot;$siteid&quot; order=&quot;listorder ASC&quot;&#125;</span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">&lt;li&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot;&gt;&#123;$r[catname]&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">    &#123;/pc&#125;</span><br><span class="line">&#123;/if&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="频道页："><a href="#频道页：" class="headerlink" title="频道页："></a>频道页：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;php $j=1;&#125;</span><br><span class="line">&#123;loop subcat($catid) $v&#125;</span><br><span class="line">&#123;php if($v[&apos;type&apos;]!=0) continue;&#125;</span><br><span class="line">&lt;div class=&quot;cat_name&quot;&gt;&lt;span class=&quot;Nmore&quot;&gt;&lt;a href=&quot;&#123;$v[url]&#125;&quot;&gt;更多&amp;raquo;&lt;/a&gt;&lt;/span&gt;&#123;$v[catname]&#125;&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;news_list2&quot;&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &#123;pc:content action=&quot;lists&quot; catid=&quot;$v[catid]&quot; num=&quot;5&quot; order=&quot;id DESC&quot;&#125;</span><br><span class="line">    &#123;loop $data $r&#125;</span><br><span class="line">    &lt;li&gt;&lt;span class=&quot;date&quot;&gt;&#123;date(&apos;Y-m-d&apos;,$r[inputtime])&#125;&lt;/span&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot; target=&quot;_blank&quot; title=&quot;&#123;$r[title]&#125;&quot;&gt;&#123;$r[title]&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &#123;/loop&#125;</span><br><span class="line">    &#123;/pc&#125;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- news_list end--&gt;</span><br><span class="line">&lt;div class=&quot;cl&quot;&gt;&lt;/div&gt;</span><br><span class="line">&#123;$j++&#125;</span><br><span class="line">&#123;/loop&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="文章内容页"><a href="#文章内容页" class="headerlink" title="文章内容页"></a>文章内容页</h4><blockquote>
+<p>显示内容：<br>{$title}  {$inputtime}  {$content}  {$copyfrom}  {$thumb}<br>当前所属栏目：{$CAT[catname]}  当前所属栏目URL:{$CAT[url]}<br>获取多文件类型的上传的第一个文件地址：<br>       {php eval(“\$arr=” . $r[upload] . “;”);echo $arr[0][‘fileurl’];}<br>父栏目名称与链接：<br>       {$CATEGORYS[$CAT[parentid]][catname]} 与 {$CATEGORYS[$CAT[parentid]][url]}<br>获取上上级栏目名称与链接：<br>       {$CATEGORYS[$CATEGORYS[$CAT[parentid]][parentid]][catname]} 与<br>       {$CATEGORYS[$CATEGORYS[$CAT[parentid]][parentid]][url]}</p>
+</blockquote>
+<h4 id="组图列表："><a href="#组图列表：" class="headerlink" title="组图列表："></a>组图列表：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;loop $photos $r&#125;</span><br><span class="line">&lt;li&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot;&gt;&lt;img src=&quot;&#123;thumb($r[url], 75, 45, 0)&#125;&quot; alt=&quot;&#123;$r[alt]&#125;&quot; /&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="浏览次数："><a href="#浏览次数：" class="headerlink" title="浏览次数："></a>浏览次数：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id=&quot;hits&quot;&gt;&lt;/span&gt;次</span><br><span class="line">&lt;script language=&quot;JavaScript&quot; src=&quot;&#123;APP_PATH&#125;api.php?op=count&amp;id=&#123;$id&#125;&amp;modelid=&#123;$modelid&#125;&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="显示上一页和下一页："><a href="#显示上一页和下一页：" class="headerlink" title="显示上一页和下一页："></a>显示上一页和下一页：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;p class=&quot;f14&quot;&gt;</span><br><span class="line">&lt;strong&gt;上一篇：&lt;/strong&gt;&lt;a href=&quot;&#123;$previous_page[url]&#125;&quot;&gt;&#123;$previous_page[title]&#125;&lt;/a&gt;&lt;br /&gt;</span><br><span class="line">&lt;strong&gt;下一篇：&lt;/strong&gt;&lt;a href=&quot;&#123;$next_page[url]&#125;&quot;&gt;&#123;$next_page[title]&#125;&lt;/a&gt;</span><br><span class="line">&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="文章内容分页：-pages"><a href="#文章内容分页：-pages" class="headerlink" title="文章内容分页：{$pages}"></a>文章内容分页：<div id="pages" class="text-c">{$pages}</div></h4><h4 id="组图列表：-1"><a href="#组图列表：-1" class="headerlink" title="组图列表："></a>组图列表：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;loop $photos $r&#125;</span><br><span class="line">&lt;li&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot;&gt;&lt;img src=&quot;&#123;thumb($r[url], 75, 45, 0)&#125;&quot; alt=&quot;&#123;$r[alt]&#125;&quot; /&gt;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="加载评论："><a href="#加载评论：" class="headerlink" title="加载评论："></a>加载评论：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;if $allow_comment &amp;&amp; module_exists(&apos;comment&apos;)&#125;</span><br><span class="line">  &lt;iframe src=&quot;&#123;APP_PATH&#125;index.php?m=comment&amp;c=index&amp;a=init&amp;commentid=&#123;id_encode(&quot;content_$catid&quot;,$id,$siteid)&#125;&amp;iframe=1&quot; width=&quot;100%&quot; height=&quot;100%&quot; id=&quot;comment_iframe&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot;&gt;&lt;/iframe&gt;</span><br><span class="line">&#123;/if&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="PC-get语句调用数据"><a href="#PC-get语句调用数据" class="headerlink" title="PC:get语句调用数据"></a>PC:get语句调用数据</h4><p>用pc:get时的记录条数时分页显示：<br> 解决办法一：</p>
+<p>{pc:get sql=”SELECT title,url FROM v9_news where catid=9 and status=99 order by updatetime desc” start=”0” num=”4” return=”v”}</p>
+<p> 解决办法二：</p>
+<p>{pc:get sql=”SELECT title,url FROM v9_news where catid=9 and status=99 order by updatetime desc limit 0,4–” return=”v”}</p>
+<h4 id="在首页某模型所有栏目最新文章调用带栏目名称"><a href="#在首页某模型所有栏目最新文章调用带栏目名称" class="headerlink" title="在首页某模型所有栏目最新文章调用带栏目名称"></a>在首页某模型所有栏目最新文章调用带栏目名称</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:get sql=&quot;select * from v9_convert_news where status=99 order by id desc&quot; num=&quot;11&quot;&#125;</span><br><span class="line">&#123;loop $data $v&#125;</span><br><span class="line">&lt;li style=&quot;text-align:center;&quot;&gt;&lt;a href=&quot;&#123;$CATEGORYS[$v[catid]][url]&#125;&quot; style=&quot;font-size:12px; color:#F30&quot;&gt;&#123;str_cut($CATEGORYS[$v[catid]][catname],45,&apos;...&apos;)&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&lt;li style=&quot;width:280px;&quot;&gt;</span><br><span class="line">| &lt;a href=&quot;&#123;$v[&apos;url&apos;]&#125;&quot; title=&quot;&#123;$r[title]&#125;&quot; target=&quot;_blank&quot;&gt;&#123;str_cut($v[title],90)&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:link  action=&quot;type_list&quot; typeid=&quot;0&quot; siteid=&quot;1&quot; linktype=&quot;1&quot; order=&quot;listorder DESC&quot; num=&quot;8&quot;&#125; </span><br><span class="line">&#123;loop $data $v&#125;</span><br><span class="line">&lt;a href=&quot;&#123;$v[&apos;url&apos;]&#125;&quot; title=&quot;&#123;$v[&apos;name&apos;]&#125;&quot; target=&quot;_blank&quot;&gt;&#123;$v[&apos;name&apos;]&#125;&lt;/a&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<p>一般常用标题： {$v[‘url’]}   {$v[‘url’]}  {$v[‘logo’]}<br>注:linktype=”1”时为图片友情。为0时为文本链接</p>
+<h4 id="站点列表"><a href="#站点列表" class="headerlink" title="站点列表"></a>站点列表</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:get sql=&quot;select name,domain from v9_site where siteid&lt;&gt;1 order by siteid asc&quot;&#125;</span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">&lt;a href=&quot;&#123;$r[url]&#125;&quot; target=&quot;_blank&quot; title=&quot;&#123;$r[name]&#125;&quot;&gt;&#123;$r[name]&#125;&lt;/a&gt; </span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="调用单页内容"><a href="#调用单页内容" class="headerlink" title="调用单页内容"></a>调用单页内容</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:get sql=&quot;SELECT content FROM v9_page where catid=&apos;6&apos;&quot;  return=&quot;data&quot;&#125; </span><br><span class="line">&#123;loop $data $r&#125; </span><br><span class="line">&#123;str_cut(strip_tags($r[content]), 160)&#125;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="调用排行"><a href="#调用排行" class="headerlink" title="调用排行"></a>调用排行</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content  action=&quot;hits&quot; catid=&quot;13&quot; order=&quot;weekviews DESC&quot; num=&quot;4&quot;&#125;</span><br><span class="line">&#123;loop $data $r&#125; </span><br><span class="line"></span><br><span class="line">&lt;li&gt; &lt;a href=&quot;&#123;$r[&apos;url&apos;]&#125;&quot;&gt;&#123;$r[&apos;title&apos;]&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line"></span><br><span class="line">&#123;/loop&#125; </span><br><span class="line">&#123;/pc&#125; </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123;pc:get sql=&quot;select * from ns_gck where catid in(415,420,421,422,423,424,425)&quot; num=&quot;10&quot; return=&quot;data&quot;&#125;</span><br><span class="line">&#123;loop $data $r&#125;</span><br><span class="line">&lt;li&gt;&lt;a href=&quot;&#123;$r[url]&#125;&quot; title=&quot;&#123;$r[title]&#125;&quot;&gt;&#123;str_cut($r[title],&quot;28&quot;)&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">&#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="在LIST中调用文章的浏览次数"><a href="#在LIST中调用文章的浏览次数" class="headerlink" title="在LIST中调用文章的浏览次数"></a>在LIST中调用文章的浏览次数</h4><p>把以下代码加在{pc:content  action=”hits”……中合适的地方即可：<br>{php $h_md=pc_base::load_model(‘hits_model’);$get_db=$h_md-&gt;get_one(array(‘hitsid’=&gt;”c-“.$modelid.”-“.$r[id]));$views=$get_db[views];}<br>点击量：{$views}</p>
+<h4 id="全站最新文章"><a href="#全站最新文章" class="headerlink" title="全站最新文章"></a>全站最新文章</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;pc:content action=&quot;newcontent&quot; order=&quot;8&quot; num=&quot;7&quot;&#125;</span><br><span class="line">    &#123;loop $data $r&#125;</span><br><span class="line">       &lt;li&gt;[&#123;$CATEGORYS[$r[catid]][catname]&#125;]&lt;a href=&quot;&#123;$r[&apos;url&apos;]&#125;&quot;&gt;&#123;str_cut($r[&apos;title&apos;],28)&#125;&lt;/a&gt;&lt;/li&gt;</span><br><span class="line">    &#123;/loop&#125;</span><br><span class="line">&#123;/pc&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="列表页调关键词："><a href="#列表页调关键词：" class="headerlink" title="列表页调关键词："></a>列表页调关键词：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">TAG:&#123;loop $keywords $keyword&#125;  </span><br><span class="line">&lt;a href=&quot;&#123;APP_PATH&#125;index.php?m=content&amp;c=tag&amp;a=lists&amp;tag=&#123;urlencode($keyword)&#125;&quot;&gt;&#123;$keyword&#125;&lt;/a&gt;</span><br><span class="line">&#123;/loop&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><pre><code>phpcms用来建站还是不错的，本身基于模块化，便于二次开发，用起来也比较简单。
+</code></pre>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/前端技术/" rel="tag"># 前端技术</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/12/js二叉树算法原理以及代码实现/" rel="next" title="js二叉树算法原理以及代码实现">
+                <i class="fa fa-chevron-left"></i> js二叉树算法原理以及代码实现
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://images.liqucn.com/img/h1/h965/img201709161120060_info300X300.jpg"
+                alt="余生" />
+            
+              <p class="site-author-name" itemprop="name">余生</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/win121338" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="win121338@163.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/5770406290" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-globe"></i>微博</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/yourname" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.baidu.com" title="百度一下，你就知道" target="_blank">百度一下，你就知道</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.csdn.net/nav/web" title="CSDN-前端" target="_blank">CSDN-前端</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写在前面的话"><span class="nav-number">1.</span> <span class="nav-text">写在前面的话</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#头部"><span class="nav-number">1.0.1.</span> <span class="nav-text">头部</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#栏目名称"><span class="nav-number">1.0.2.</span> <span class="nav-text">栏目名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#循环"><span class="nav-number">1.0.3.</span> <span class="nav-text">循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#模板包含"><span class="nav-number">1.0.4.</span> <span class="nav-text">模板包含</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用调用数据"><span class="nav-number">1.0.5.</span> <span class="nav-text">常用调用数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用标签：-str-cut-strip-tags-r-description-165"><span class="nav-number">1.0.6.</span> <span class="nav-text">常用标签：{str_cut(strip_tags($r[description]), 165)}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐位调用："><span class="nav-number">1.0.7.</span> <span class="nav-text">推荐位调用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一级栏目调用："><span class="nav-number">1.0.8.</span> <span class="nav-text">一级栏目调用：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当前栏目风格："><span class="nav-number">1.0.9.</span> <span class="nav-text">当前栏目风格：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在文章前显示文章分类名："><span class="nav-number">1.0.10.</span> <span class="nav-text">在文章前显示文章分类名：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#指定变量循环增长"><span class="nav-number">1.0.11.</span> <span class="nav-text">指定变量循环增长:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章从指定位置调用：num-”3”-start-”5”-可配合pc-get标签使用"><span class="nav-number">1.0.12.</span> <span class="nav-text">文章从指定位置调用：num=”3” start=”5”} (可配合pc:get标签使用)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章列表页调用关键字，或者首页调用关键字"><span class="nav-number">1.0.13.</span> <span class="nav-text">文章列表页调用关键字，或者首页调用关键字:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当列表几行的时候出现一次某些符号-if-n-2-1-if"><span class="nav-number">1.0.14.</span> <span class="nav-text">当列表几行的时候出现一次某些符号:{if $n%2==1}|{/if}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当前位置显示："><span class="nav-number">1.0.15.</span> <span class="nav-text">当前位置显示：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表内容显示（带分页）："><span class="nav-number">1.0.16.</span> <span class="nav-text">列表内容显示（带分页）：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示该栏目下的子栏目："><span class="nav-number">1.0.17.</span> <span class="nav-text">显示该栏目下的子栏目：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#频道页："><span class="nav-number">1.0.18.</span> <span class="nav-text">频道页：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章内容页"><span class="nav-number">1.0.19.</span> <span class="nav-text">文章内容页</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组图列表："><span class="nav-number">1.0.20.</span> <span class="nav-text">组图列表：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浏览次数："><span class="nav-number">1.0.21.</span> <span class="nav-text">浏览次数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#显示上一页和下一页："><span class="nav-number">1.0.22.</span> <span class="nav-text">显示上一页和下一页：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文章内容分页：-pages"><span class="nav-number">1.0.23.</span> <span class="nav-text">文章内容分页：{$pages}</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组图列表：-1"><span class="nav-number">1.0.24.</span> <span class="nav-text">组图列表：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载评论："><span class="nav-number">1.0.25.</span> <span class="nav-text">加载评论：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PC-get语句调用数据"><span class="nav-number">1.0.26.</span> <span class="nav-text">PC:get语句调用数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在首页某模型所有栏目最新文章调用带栏目名称"><span class="nav-number">1.0.27.</span> <span class="nav-text">在首页某模型所有栏目最新文章调用带栏目名称</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#友情链接"><span class="nav-number">1.0.28.</span> <span class="nav-text">友情链接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#站点列表"><span class="nav-number">1.0.29.</span> <span class="nav-text">站点列表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用单页内容"><span class="nav-number">1.0.30.</span> <span class="nav-text">调用单页内容</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#调用排行"><span class="nav-number">1.0.31.</span> <span class="nav-text">调用排行</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在LIST中调用文章的浏览次数"><span class="nav-number">1.0.32.</span> <span class="nav-text">在LIST中调用文章的浏览次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全站最新文章"><span class="nav-number">1.0.33.</span> <span class="nav-text">全站最新文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#列表页调关键词："><span class="nav-number">1.0.34.</span> <span class="nav-text">列表页调关键词：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">2.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">余生</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
